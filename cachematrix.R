@@ -1,18 +1,18 @@
 ## creates a special "matrix" object that can cache the input matrix and its inverse
 
-makeCacheMatrix <- function(x = matrix()) {
-  m<-NULL
+makeCacheMatrix <- function(x = getmatrix()) {
+  m<-NULL##default setting before cacheSolve is executed
   set<-function(y){
     x<<-y
-    m<<-NULL
+    m<<-NULL##<<- assignes values to an object in an environment, different from the current one
   }
-  get<-function() x
-  setmatrix<-function(solve) m<<- solve
-  getmatrix<-function() m
+  get<-function() x##getting the matrix value
+  setmatrix<-function(solve) m<<- solve##setting the inverse matrix
+  getmatrix<-function() m##getting the inverse matrix value
   list(set=set, get=get,
        setmatrix=setmatrix,
        getmatrix=getmatrix)
-
+  #making the list, used as an input for cacheSolve function
 }
 
 
